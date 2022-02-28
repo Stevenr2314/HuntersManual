@@ -2,8 +2,8 @@ import styled from "styled-components";
 import {NavLink as Link} from 'react-router-dom'
 
 export const Nav = styled.nav`
-    background: #164da0;
-    height: 15vh;
+    background: #284e88;
+    height: 30vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,8 +11,10 @@ export const Nav = styled.nav`
     z-index: 10;
 `
 export const NavMenu = styled.div`
-    display: flex; 
-    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     margin-right: -2rem;
     border: 1px dashed gray;
     height: 100%;
@@ -20,6 +22,18 @@ export const NavMenu = styled.div`
     @media screen and (max-width: 800px) {
         display:none;
     }
+`
+
+export const Title = styled.h1`
+    font-size: 7rem;
+    color: #d1b456;
+    margin: 0;
+`
+export const NavTabs = styled.div`
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+    border: 1px dashed gray;
 `
 
 export const NavLink = styled(Link)`
@@ -32,7 +46,7 @@ export const NavLink = styled(Link)`
     text-decoration: none;
     padding: .5rem 2rem;
     margin-right: 1rem;
-    height: 30%;
+    /* height: 100%; */
     cursor: pointer;
 
     &.active {
