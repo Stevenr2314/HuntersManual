@@ -3,7 +3,7 @@ import {NavLink as Link} from 'react-router-dom'
 
 export const Nav = styled.nav`
     background: #284e88;
-    height: 30vh;
+    height: 25vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,7 +16,7 @@ export const NavMenu = styled.div`
     justify-content: flex-end;
     align-items: center;
     margin-right: -2rem;
-    border: 1px dashed gray;
+    /* border: 1px dashed gray; */
     height: 100%;
 
     @media screen and (max-width: 800px) {
@@ -33,7 +33,7 @@ export const NavTabs = styled.div`
     display: flex;
     flex-direction: row;
     height: 25%;
-    border: 1px dashed gray;
+    /* border: 1px dashed gray; */
 `
 
 export const NavLink = styled(Link)`
@@ -57,7 +57,7 @@ export const NavLink = styled(Link)`
 export const NavBtn = styled.nav`
     display: flex;
     align-items: center;
-    border: 1px dashed gray;
+    /* border: 1px dashed gray; */
 
     @media screen and (max-width: 800px) {
         display:none;
