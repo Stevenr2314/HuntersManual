@@ -17,7 +17,7 @@ export const MonstersTitle = styled.h1`
 
 `
 
-export const MonsterCard = styled(Link)`
+export const MonsterCard = styled.div`
     height: 15vh;
     width: 10vw;
     margin: 5% 5%;

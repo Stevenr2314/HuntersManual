@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/monsters' element={<Monsters />}>
-          <Route exact path=':name' element={<Monster />} />
+          <Route exact path=':id' element={<Monster />} />
         </Route>
       </Routes>
     </div>

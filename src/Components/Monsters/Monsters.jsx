@@ -2,15 +2,19 @@ import React, { useEffect } from "react";
 import { connect } from 'react-redux'
 import { getMonsters } from "../../Actions/MonsterActions";
 import { MonsterCard, MonstersContainer, MonstersTitle } from "./MonstersElements";
-import { Outlet , useLocation} from "react-router-dom";
+import { Outlet , useLocation, useNavigate} from "react-router-dom";
 
 const Monsters = props => {
     let location = useLocation()
+    let navigate = useNavigate()
 
     useEffect(() => {
         props.getMonsters()
     }, [])
     
+    let handleClick = id => {
+        navigate(`/monsters/${id}`)
+    }
 
     return (
         <MonstersContainer>
@@ -19,7 +23,7 @@ const Monsters = props => {
                 <MonstersTitle>Monsters</MonstersTitle>
                 {props.monsters.map(monster => 
                     (
-                        <MonsterCard key={monster.id} to={`/monsters/${monster.name}`}>
+                        <MonsterCard key={monster.id} onClick={() => handleClick(monster.id)}>
                             <h2 >{monster.name}</h2>
                             <h3>{monster.type}</h3>
                         </MonsterCard>
