@@ -32,20 +32,23 @@ export const Info = styled.section`
         display: inline;
         text-decoration: none;
         font-size: 1.5rem;
-        /* width:80%; */
         text-align: center;
         line-height: 1.8;
+
 
     }
 `
 
 export const Weaknesses = styled.section`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
-    width:80%;
-    border: 1px dashed black;
+    justify-content: center;
+    width:90%;
+
+    p{
+        margin-right: .7rem;
+    }
 `
 export const Name = styled.h1`
     font-size: 4rem;
@@ -79,4 +82,9 @@ export const Arrow = styled.div`
     font-size: 8rem;
     text-align: center;
     cursor: pointer;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 `
