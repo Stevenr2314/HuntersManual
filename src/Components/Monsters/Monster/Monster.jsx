@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { selectMonster, getMonster } from "../../Actions/MonsterActions";
+import { selectMonster, getMonster } from "../MonsterActions";
 import { Arrow, Container, ImgContainer, Info, MonsterDiv, Name, Titles, Weaknesses } from './MonsterElements'
 
 const Monster = props => {

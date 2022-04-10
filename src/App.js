@@ -1,6 +1,7 @@
 import Navbar from './Components/Navbar/NavBar.js';
 import Monsters from './Components/Monsters/Monsters.jsx';
-import Monster from './Components/Monster/Monster.jsx';
+import Monster from './Components/Monsters/Monster/Monster.jsx';
+import Items from './Components/Items/Items.js';
 import { Route , Routes} from 'react-router-dom';
 
 function App() {
@@ -10,6 +11,9 @@ function App() {
       <Routes>
         <Route path='/monsters' element={<Monsters />}>
           <Route exact path=':id' element={<Monster />} />
+        </Route>
+        <Route path='/items' element={<Items />} >
+          {/* <Route exact path=':id' element={} /> */}
         </Route>
       </Routes>
     </div>

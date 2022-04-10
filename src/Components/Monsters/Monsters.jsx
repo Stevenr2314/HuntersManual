@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux'
-import { getMonsters } from "../../Actions/MonsterActions";
+import { getMonsters } from "./MonsterActions";
 import { MonsterCard, MonstersContainer, MonstersTitle } from "./MonstersElements";
 import { Outlet , useLocation, useNavigate} from "react-router-dom";
 
@@ -21,14 +21,19 @@ const Monsters = props => {
             {location.pathname === '/monsters' ? 
             <>
                 <MonstersTitle>Monsters</MonstersTitle>
-                {props.monsters.map(monster => 
+                {
+                props.monsters.length > 1 ?
+                props.monsters.map(monster => 
                     (
                         <MonsterCard key={monster.id} onClick={() => handleClick(monster.id)}>
                             <h2 >{monster.name}</h2>
                             <h3>{monster.type}</h3>
                         </MonsterCard>
                     )
-                )} 
+                ) 
+                :
+                <h1>LOADING</h1>
+                } 
             </>
             :
             <Outlet /> 
@@ -39,8 +44,8 @@ const Monsters = props => {
 
 const mapStateToProps = state => {
     return {
-        monsters : state.monsters,
-        currentMonster: state.currentMonster
+        monsters : state.monsters.monsters,
+        currentMonster: state.monsters.currentMonster
     }
 }
 

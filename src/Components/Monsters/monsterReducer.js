@@ -1,11 +1,11 @@
-import { GET_MONSTERS_FAILURE, GET_MONSTERS_START, GET_MONSTERS_SUCCESS, SELECT_MONSTER, GET_MONSTER_FAILURE, GET_MONSTER_START, GET_MONSTER_SUCCESS } from "../Actions/MonsterActions"
+import { GET_MONSTERS_FAILURE, GET_MONSTERS_START, GET_MONSTERS_SUCCESS, SELECT_MONSTER, GET_MONSTER_FAILURE, GET_MONSTER_START, GET_MONSTER_SUCCESS } from "./MonsterActions"
 
 const initialState = {
     monsters: [],
     currentMonster: {},
     isFetching: false
 }
-export const reducer = (state = initialState, action) => {
+export const monsterReducer = (state = initialState, action) => {
     switch(action.type){
         case GET_MONSTERS_START:
             return {
