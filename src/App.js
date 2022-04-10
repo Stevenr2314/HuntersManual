@@ -3,6 +3,7 @@ import Monsters from './Components/Monsters/Monsters.jsx';
 import Monster from './Components/Monsters/Monster/Monster.jsx';
 import Items from './Components/Items/Items.js';
 import { Route , Routes} from 'react-router-dom';
+import Weapons from './Components/Weapons/Weapons.js';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path='/items' element={<Items />} >
           {/* <Route exact path=':id' element={} /> */}
+        </Route>
+        <Route path='/weapons' element={<Weapons />} >
+          
         </Route>
       </Routes>
     </div>

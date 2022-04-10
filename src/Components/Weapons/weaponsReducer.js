@@ -1,50 +1,50 @@
-import { GET_ITEMS_FAILURE, GET_ITEMS_START, GET_ITEMS_SUCCESS, SELECT_ITEM, GET_ITEM_FAILURE, GET_ITEM_START, GET_ITEM_SUCCESS } from "./ItemActions"
+import { GET_WEAPONS_FAILURE, GET_WEAPONS_START, GET_WEAPONS_SUCCESS, SELECT_WEAPON, GET_WEAPON_FAILURE, GET_WEAPON_START, GET_WEAPON_SUCCESS } from "./WeaponActions"
 
 const initialState = {
-    items: [],
-    currentItem: {},
+    weapons: [],
+    currentWEAPON: {},
     isFetching: false
 }
-export const itemReducer = (state = initialState, action) => {
+export const weaponReducer = (state = initialState, action) => {
     switch(action.type){
-        case GET_ITEMS_START:
+        case GET_WEAPONS_START:
             return {
                 ...state,
                 error: '',
                 isFetching: true
             }
-        case GET_ITEMS_SUCCESS:
+        case GET_WEAPONS_SUCCESS:
             return {
                 ...state,
                 error: '',
-                items: action.payload,
+                weapons: action.payload,
                 isFetching: false
             }
-        case GET_ITEMS_FAILURE:
+        case GET_WEAPONS_FAILURE:
             return {
                 ...state,
                 error: '',
                 isFetching: false
             }
-        case SELECT_ITEM:
+        case SELECT_WEAPON:
             return {
                 ...state,
-                currentItem: action.payload,
+                currentWeapon: action.payload,
             }
-        case GET_ITEM_START:
+        case GET_WEAPON_START:
             return {
                 ...state,
                 error: '',
                 isFetching: true
             }
-        case GET_ITEM_SUCCESS:
+        case GET_WEAPON_SUCCESS:
             return {
                 ...state,
                 error: '',
-                currentItem: action.payload,
+                currentWeapon: action.payload,
                 isFetching: false
             }
-        case GET_ITEM_FAILURE:
+        case GET_WEAPON_FAILURE:
             return {
                 ...state,
                 error: '',

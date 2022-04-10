@@ -1,32 +1,32 @@
 import React, { useEffect }  from "react";
 import { Outlet , useLocation, useNavigate} from "react-router-dom";
 import { connect } from 'react-redux'
-import { getItems } from "./ItemActions";
+import { getWeapons } from "./WeaponActions";
 
-const Items = props => {
+const Weapons = props => {
     let location = useLocation()
     let navigate = useNavigate()
 
     let handleClick = id => {
-        navigate(`/items/${id}`)
+        navigate(`/weapons/${id}`)
     }
 
     useEffect(() => {
-        props.getItems()
+        props.getWeapons()
     }, [])
 
     return(
         <div>
             {
-                location.pathname='/items' ?
+                location.pathname='/weapons' ?
                 <>
-                    <h1>ITEMS</h1>
-                    { props.items.length > 1 ?
-                        props.items.map(item => {
+                    <h1>WEAPONS</h1>
+                    { props.weapons.length > 1 ?
+                        props.weapons.map(weapon => {
                             return(
-                            <div key={item.id} onClick={() => handleClick(item.id)}>
-                                <h2>{item.name}</h2>
-                                <h3>Rarity: {item.rarity}</h3>
+                            <div key={weapon.id} onClick={() => handleClick(weapon.id)}>
+                                <h2>{weapon.name}</h2>
+                                <h3>Rarity: {weapon.rarity}</h3>
                             </div>
                             )
                         })
@@ -43,9 +43,9 @@ const Items = props => {
 
 const mapStateToProps = state => {
     return {
-        items : state.items.items,
-        currentItem: state.items.currentItem
+        weapons : state.weapons.weapons,
+        currentweapon: state.weapons.currentweapon
     }
 }
 
-export default connect(mapStateToProps, { getItems })(Items)
+export default connect(mapStateToProps, { getWeapons })(Weapons)
