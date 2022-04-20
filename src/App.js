@@ -17,7 +17,7 @@ function App() {
           {/* <Route exact path=':id' element={} /> */}
         </Route>
         <Route path='/weapons' element={<Weapons />} >
-          
+          {/* <Route exact path=':id' element={} /> */}
         </Route>
       </Routes>
     </div>
