@@ -1,33 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux'
 import { getList } from "./listerActions";
-import { MonsterCard, MonstersContainer, MonstersTitle } from "./MonstersElements";
+import { MonsterCard, MonstersContainer, MonstersTitle } from "../Monsters/MonstersElements";
 import { Outlet , useLocation, useNavigate} from "react-router-dom";
 
 const Lister = props => {
     let location = useLocation()
     let navigate = useNavigate()
+    const [title, setTitle] = useState('')
 
     useEffect(() => {
         props.getList(location.pathname)
-    }, [])
+        setTitle(location.pathname.charAt(1).toUpperCase() + location.pathname.slice(2))
+    }, [location.pathname])
     
     let handleClick = id => {
-        navigate(`/monsters/${id}`)
+        navigate(`${location.pathname}/${id}`)
     }
 
     return (
         <MonstersContainer>
-            {location.pathname === '/monsters' ? 
+            {location.pathname.length > 2 ? 
             <>
-                <MonstersTitle>Monsters</MonstersTitle>
+                <MonstersTitle>{title}</MonstersTitle>
                 {
-                props.monsters.length > 1 ?
-                props.monsters.map(monster => 
+                props.list.length > 1 ?
+                props.list.map(listItem => 
                     (
-                        <MonsterCard key={monster.id} onClick={() => handleClick(monster.id)}>
-                            <h2 >{monster.name}</h2>
-                            <h3>{monster.type}</h3>
+                        <MonsterCard key={listItem.id} onClick={() => handleClick(listItem.id)}>
+                            <h2 >{listItem.name}</h2>
                         </MonsterCard>
                     )
                 ) 
