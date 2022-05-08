@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux'
-import { getList } from "./listerActions";
+import { getList, clearList } from "./listerActions";
 import { MonsterCard, MonstersContainer, MonstersTitle } from "../Monsters/MonstersElements";
 import { Outlet , useLocation, useNavigate} from "react-router-dom";
 
@@ -10,6 +10,7 @@ const Lister = props => {
     const [title, setTitle] = useState('')
 
     useEffect(() => {
+        props.clearList()
         props.getList(location.pathname)
         setTitle(location.pathname.charAt(1).toUpperCase() + location.pathname.slice(2))
     }, [location.pathname])
@@ -50,4 +51,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getList })(Lister)
+export default connect(mapStateToProps, { getList, clearList })(Lister)

@@ -6,6 +6,7 @@ export const GET_LIST_FAILURE = 'GET_LIST_FAILURE';
 export const GET_LISTITEM_START = 'GET_LISTITEM_START';
 export const GET_LISTITEM_SUCCESS = 'GET_LISTITEM_SUCCESS';
 export const GET_LISTITEM_FAILURE = 'GET_LISTITEM_FAILURE';
+export const CLEAR_LIST = 'CLEAR_LIST';
 
 
 export const getList = (pathname) => dispatch =>{
@@ -28,4 +29,8 @@ export const getListItem = (pathname, id) => dispatch =>{
         .catch(err => {
             dispatch({ type: GET_LISTITEM_FAILURE, payload: err})
         })
+}
+
+export const clearList = () => {
+    return {type: CLEAR_LIST }
 }
