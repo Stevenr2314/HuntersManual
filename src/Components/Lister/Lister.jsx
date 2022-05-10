@@ -8,6 +8,7 @@ const Lister = props => {
     let location = useLocation()
     let navigate = useNavigate()
     const [title, setTitle] = useState('')
+    const [isActive, setIsActive] = useState(true)
 
     useEffect(() => {
         props.clearList()
@@ -17,11 +18,12 @@ const Lister = props => {
     
     let handleClick = id => {
         navigate(`${location.pathname}/${id}`)
+        setIsActive(false)
     }
 
     return (
         <MonstersContainer>
-            {location.pathname.length > 2 ? 
+            {isActive ? 
             <>
                 <MonstersTitle>{title}</MonstersTitle>
                 {
