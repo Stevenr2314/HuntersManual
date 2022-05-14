@@ -8,10 +8,11 @@ const Lister = props => {
     let location = useLocation()
     let navigate = useNavigate()
     const [title, setTitle] = useState('')
-    const [isActive, setIsActive] = useState(true)
+    const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {
         props.clearList()
+        setIsActive(true)
         props.getList(location.pathname)
         setTitle(location.pathname.charAt(1).toUpperCase() + location.pathname.slice(2))
     }, [location.pathname])
